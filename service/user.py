@@ -54,7 +54,7 @@ class UserService:
         return {"access_token" : access_token, "refresh_token" : refresh_token}
 
     def approve_refresh_token(self, refresh_token):
-        data = jwt.decode(jwt=refresh_token, key=JWT_SECRET, algoritms=[JWT_ALGORITHM])
+        data = jwt.decode(jwt=refresh_token, key=JWT_SECRET, algorithms=[JWT_ALGORITHM])
         username = data.get("username")
         return self.generate_tokens(username, password=None, is_refresh=True)
 
